@@ -22,7 +22,8 @@ const projects = [
     tags: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Firebase'],
     category: 'fullstack',
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/adityagit2605/techtangle',
+
     color: '#3178C6',
   },
   {
@@ -31,8 +32,8 @@ const projects = [
     image: null,
     tags: ['Next.js', 'React'],
     category: 'frontend',
-    liveUrl: '#',
-    codeUrl: '#',
+    liveUrl: 'https://interview-nest.vercel.app/',
+    codeUrl: 'https://github.com/adityagit2605/interviewnest',
     color: '#61DAFB',
   },
   {
@@ -42,7 +43,7 @@ const projects = [
     tags: ['Python', 'Tailwind CSS'],
     category: 'backend',
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/adityagit2605/Ignite-Fitness',
     color: '#339933',
   },
   {
@@ -72,7 +73,7 @@ const projects = [
     tags: ['Next.js', 'React', 'Tailwind CSS'],
     category: 'frontend',
     liveUrl: '#',
-    codeUrl: '#',
+    codeUrl: 'https://github.com/adityagit2605/workshop_booking',
     color: '#06B6D4',
   },
 ];
@@ -200,8 +201,8 @@ const Projects = () => {
               key={filter.value}
               onClick={() => setActiveFilter(filter.value)}
               className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeFilter === filter.value
-                  ? 'bg-gradient-to-r from-accent to-accent-light text-white shadow-lg shadow-accent/20'
-                  : 'bg-white/5 text-neutral-400 border border-white/10 hover:border-accent/30 hover:text-white'
+                ? 'bg-gradient-to-r from-accent to-accent-light text-white shadow-lg shadow-accent/20'
+                : 'bg-white/5 text-neutral-400 border border-white/10 hover:border-accent/30 hover:text-white'
                 }`}
             >
               {filter.label}

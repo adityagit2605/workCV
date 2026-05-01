@@ -15,8 +15,8 @@ const Footer = () => {
   ];
 
   const socials = [
-    { icon: FaGithub, href: '#', label: 'GitHub' },
-    { icon: FaLinkedinIn, href: '#', label: 'LinkedIn' },
+    { icon: FaGithub, href: 'https://github.com/adityagit2605', label: 'GitHub' },
+    { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/pandeyaditya26', label: 'LinkedIn' },
   ];
 
   const handleNavClick = (href) => {
@@ -78,7 +78,7 @@ const Footer = () => {
                 ))}
               </div>
               <p className="text-neutral-500 text-xs">
-                Feel free to reach out for collaborations or just a friendly hello!
+                Feel free to reach out!
               </p>
             </div>
           </div>
@@ -87,8 +87,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="py-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-neutral-500 text-sm flex items-center gap-1">
-            © {currentYear} Aditya Pandey. Built with{' '}
-            <FaHeart className="text-accent text-xs" /> using React
+            © {currentYear} Aditya Pandey
           </p>
 
           {/* Back to Top */}

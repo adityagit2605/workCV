@@ -72,7 +72,7 @@ const Resume = () => {
           {/* Download Button */}
           <a
             href="/resume.pdf"
-            download
+            download="Aditya_Pandey_Resume.pdf"
             className="btn-primary mt-8 inline-flex"
           >
             <HiDownload className="text-lg" />

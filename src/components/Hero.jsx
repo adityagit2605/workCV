@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { HiArrowRight, HiDownload } from 'react-icons/hi';
 import { FaStar, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import heroImg from '../assets/front.png';
+
 
 
 const Hero = () => {
@@ -148,13 +150,13 @@ const Hero = () => {
               {/* Profile Image Container */}
               <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[420px] md:h-[420px] rounded-full overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/80 z-10" />
-                {/* Placeholder avatar */}
-                <div className="w-full h-full bg-gradient-to-br from-neutral-700 to-neutral-900 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-8xl sm:text-9xl font-bold gradient-text">A</div>
-                    <p className="text-neutral-400 text-sm mt-2">Your Photo Here</p>
-                  </div>
-                </div>
+                {/* Real image */}
+                <img
+                  src={heroImg}
+                  alt="Aditya"
+                  className="w-full h-full object-cover object-top"
+                />
+
               </div>
 
               {/* Orbiting Ring */}

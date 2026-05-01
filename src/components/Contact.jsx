@@ -37,8 +37,8 @@ const contactInfo = [
 ];
 
 const socials = [
-  { icon: FaGithub, label: 'GitHub', href: '#', color: '#ffffff' },
-  { icon: FaLinkedinIn, label: 'LinkedIn', href: '#', color: '#0A66C2' },
+  { icon: FaGithub, label: 'GitHub', href: 'https://github.com/adityagit2605', color: '#ffffff' },
+  { icon: FaLinkedinIn, label: 'LinkedIn', href: 'https://www.linkedin.com/in/pandeyaditya26', color: '#0A66C2' },
 ];
 
 const Contact = () => {
@@ -60,12 +60,38 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1500));
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setSubmitted(false), 5000);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "1b1fcd09-92e3-4698-9318-9d44664f5d77",
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Failed to send message. Please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -159,7 +185,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="John Doe"
+                    placeholder="Name"
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-neutral-600 focus:outline-none focus:border-accent/50 focus:bg-white/10 transition-all duration-300"
                   />
                 </div>
@@ -173,7 +199,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="john@example.com"
+                    placeholder="Email"
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-neutral-600 focus:outline-none focus:border-accent/50 focus:bg-white/10 transition-all duration-300"
                   />
                 </div>
