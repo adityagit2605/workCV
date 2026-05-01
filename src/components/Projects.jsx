@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useAnimations';
-import { HiExternalLink, HiCode } from 'react-icons/hi';
+import { HiExternalLink, HiCode, HiX, HiInformationCircle } from 'react-icons/hi';
+
 import { SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiNextdotjs, SiFirebase, SiTypescript, SiPython } from 'react-icons/si';
 
 const techIcons = {
@@ -85,7 +86,8 @@ const filters = [
   { label: 'Backend', value: 'backend' },
 ];
 
-const ProjectCard = ({ project, index, isVisible }) => {
+const ProjectCard = ({ project, index, isVisible, handleEmptyLink }) => {
+
   const { title, description, tags, liveUrl, codeUrl, color } = project;
 
   return (
@@ -118,6 +120,7 @@ const ProjectCard = ({ project, index, isVisible }) => {
         <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
           <a
             href={liveUrl}
+            onClick={(e) => liveUrl === '#' && handleEmptyLink(e)}
             className="w-12 h-12 rounded-full bg-accent/20 border border-accent/30 flex items-center justify-center text-accent hover:bg-accent hover:text-white transition-all duration-300 hover:scale-110"
             title="Live Demo"
           >
@@ -125,11 +128,13 @@ const ProjectCard = ({ project, index, isVisible }) => {
           </a>
           <a
             href={codeUrl}
+            onClick={(e) => codeUrl === '#' && handleEmptyLink(e)}
             className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-primary transition-all duration-300 hover:scale-110"
             title="Source Code"
           >
             <HiCode size={20} />
           </a>
+
         </div>
       </div>
 
@@ -162,8 +167,15 @@ const ProjectCard = ({ project, index, isVisible }) => {
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [showModal, setShowModal] = useState(false);
   const [titleRef, titleVisible] = useScrollReveal();
   const [gridRef, gridVisible] = useScrollReveal(0.05);
+
+  const handleEmptyLink = (e) => {
+    e.preventDefault();
+    setShowModal(true);
+  };
+
 
   const filteredProjects =
     activeFilter === 'all'
@@ -218,11 +230,51 @@ const Projects = () => {
               project={project}
               index={i}
               isVisible={gridVisible}
+              handleEmptyLink={handleEmptyLink}
             />
+
           ))}
         </div>
       </div>
+
+      {/* Custom Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-primary/60 backdrop-blur-md transition-opacity duration-300"
+            onClick={() => setShowModal(false)}
+          />
+          
+          {/* Modal Card */}
+          <div className="relative w-full max-w-sm glass-card p-8 text-center animate-scale-in shadow-2xl shadow-accent/10 border-accent/20">
+            <button 
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 right-4 p-1 rounded-full hover:bg-white/10 text-neutral-500 transition-colors"
+            >
+              <HiX size={20} />
+            </button>
+
+            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
+              <HiInformationCircle className="text-accent text-3xl" />
+            </div>
+
+            <h3 className="text-xl font-bold text-white mb-2">Coming Soon!</h3>
+            <p className="text-neutral-400 text-sm leading-relaxed mb-8">
+              I&apos;m currently finalizing the documentation and polishing the code for this project. It will be available here very soon!
+            </p>
+
+            <button 
+              onClick={() => setShowModal(false)}
+              className="btn-primary w-full justify-center"
+            >
+              Got it!
+            </button>
+          </div>
+        </div>
+      )}
     </section>
+
   );
 };
 
