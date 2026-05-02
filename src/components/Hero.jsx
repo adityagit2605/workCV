@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { HiArrowRight, HiDownload } from 'react-icons/hi';
 import { FaStar, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import heroImg from '../assets/front.png';
+import heroImg from '../assets/pfp.png';
 
 
 
@@ -28,10 +28,10 @@ const Hero = () => {
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-accent/20 rounded-full blur-[128px] animate-pulse-glow" />
         <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-[100px] animate-float-slow" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px]" />
-        
+
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:72px_72px]" />
-        
+
         {/* Noise texture */}
         <div className="absolute inset-0 bg-noise opacity-30" />
       </div>
@@ -42,9 +42,8 @@ const Hero = () => {
           <div className="order-2 lg:order-1 text-center lg:text-left">
             {/* Hello Badge */}
             <div
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 transition-all duration-700 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 mb-8 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
             >
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               <span className="text-sm text-neutral-300">Available for work</span>
@@ -52,18 +51,16 @@ const Hero = () => {
 
             {/* Greeting */}
             <p
-              className={`text-accent font-medium text-lg mb-4 transition-all duration-700 delay-100 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`text-accent font-medium text-lg mb-4 transition-all duration-700 delay-100 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
             >
               Hello! 👋
             </p>
 
             {/* Name & Title */}
             <h1
-              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 transition-all duration-700 delay-200 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 transition-all duration-700 delay-200 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
             >
               I&apos;m{' '}
               <span className="gradient-text">Aditya</span>,
@@ -75,9 +72,8 @@ const Hero = () => {
 
             {/* Description */}
             <p
-              className={`text-neutral-400 text-base md:text-lg max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed transition-all duration-700 delay-300 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`text-neutral-400 text-base md:text-lg max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed transition-all duration-700 delay-300 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
             >
               Exceptional software developer crafting robust, scalable applications.
               Recommended for building modern web solutions with clean, efficient code.
@@ -87,9 +83,8 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div
-              className={`flex flex-wrap gap-4 justify-center lg:justify-start transition-all duration-700 delay-500 ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`flex flex-wrap gap-4 justify-center lg:justify-start transition-all duration-700 delay-500 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
             >
               <button onClick={() => scrollTo('projects')} className="btn-primary">
                 <span>View Projects</span>
@@ -103,9 +98,8 @@ const Hero = () => {
 
             {/* Social Links */}
             <div
-              className={`flex items-center gap-4 mt-10 justify-center lg:justify-start transition-all duration-700 delay-[600ms] ${
-                loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
+              className={`flex items-center gap-4 mt-10 justify-center lg:justify-start transition-all duration-700 delay-[600ms] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
             >
               <span className="text-sm text-neutral-500">Follow me</span>
               <div className="w-8 h-px bg-neutral-700" />
@@ -127,9 +121,8 @@ const Hero = () => {
           {/* Right Content - Profile Image */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
             <div
-              className={`relative transition-all duration-1000 delay-300 ${
-                loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-              }`}
+              className={`relative transition-all duration-1000 delay-300 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                }`}
             >
               {/* Orange Circle Background */}
               <div className="absolute inset-0 flex items-center justify-center">
